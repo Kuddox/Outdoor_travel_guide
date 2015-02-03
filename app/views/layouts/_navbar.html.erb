@@ -1,5 +1,6 @@
-<header class="navbar  navbar-inverse navbar-fixed-top">
-  <div class="container-fluid page-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <!-- <div class="container-fluid page-top"> -->
+  <div class="container-fluid">
     <nav class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" role="banner" style="height: auto; top: 48px;">
     <%= link_to root_path do %>
     <%= image_tag "OTG.png", class: "navbar-brand logo collapsed" %>
@@ -10,17 +11,14 @@
          <%= link_to 'Trips', trips_path, class: "navbar-text collapsed" %>
         <li class="dropdown">
           <a href="#Member" class="dropdown-toggle nav-text" data-toggle="dropdown" role="button" aria-expanded="false" style="color:#000;">
-
             <% if current_user %>
-
               <strong style="center">Member</strong><br>
               <%= current_user.email %> 
-              
             <% else %>
               Member
             <% end %>
-          
-            <span class="caret collapsed"></span></a>
+            <span class="caret collapsed"></span>
+          </a>
           <ul class="dropdown-menu collapsed" role="menu">
             <% if current_user %>
               <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
@@ -28,7 +26,7 @@
             <% else %>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
               <li><%= link_to 'Log In', new_user_session_path %></li>
-              <li><%= link_to 'Connect with Instagram', user_omniauth_authorize_path(provider: :instagram) %></li>
+              <li class="text-right"><%= link_to 'Connect with Instagram', user_omniauth_authorize_path(provider: :instagram) %></li>
             <% end %>
             
           </ul>
@@ -36,4 +34,4 @@
       </ul>
     </nav>
   </div>
-</header>
+</nav>
