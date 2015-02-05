@@ -1,40 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta charset="UTF-8">
-	  <title> Outdoor Travel Guide (unofficial)</title>
-	  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-	  <link rel="stylesheet" type="text/css" href="../reviews.css.scss">
-	  <link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" /> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta charset="UTF-8">
+	  <title>Outdoor Travel Guide (unofficial)</title>
 	  <%= stylesheet_link_tag    'application', media: 'all' %>
 	  <%= javascript_include_tag 'application' %>
 	  <%= csrf_meta_tags %>
-	 
-
-      <script src='http://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY']%>' type="text/javascript"></script>
-      <script src="http://maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
-      <script src='http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js?key=<%= ENV['GOOGLE_API_KEY']%>' type='text/javascript'></script>
+    <script src='http://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY']%>' type="text/javascript"></script>
+    <script src="http://maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
+    <script src='http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js?key=<%= ENV['GOOGLE_API_KEY']%>' type='text/javascript'></script>
 	</head>
-
-
-<% if notice %>
-  <p class="notice"><%= notice %></p>
-<% elsif alert %>       
-  <p class="alert"><%= alert %></p>
-<% end %>
-
-<body>   
-
-<%= render "layouts/navbar" %>
-<main class="page-row page-row-expanded">
-<p><%= yield %></p> 
-</main> 
-
-<footer class="page-row"><br>
-  <!-- <p><a href="http://www.TrailAPI.com">© 2012 | TrailAPI</a> -->
-  <p align="right">Copyright © 2015 | Outdoor Travel Guide. All rights reserved.</p>  
-</footer>
-
-</body>
+	<body>   
+		<%= render "layouts/navbar" %>
+		<%= yield %>
+		<footer>
+		  <!-- <p><a href="http://www.TrailAPI.com">© 2012 | TrailAPI</a> -->
+		  <p>Copyright © 2015 | Outdoor Travel Guide. All rights reserved.</p>  
+		</footer>
+	</body>
 </html>
