@@ -24,10 +24,7 @@ gem 'font-awesome-sass'
 gem "letter_opener", :group => :development
 
 group :development, :test do
-  gem 'dotenv-rails'
-  gem 'spring-commands-rspec'  
-  gem 'rspec-rails'
-  gem 'guard-rspec' 
+  gem 'dotenv-rails'  
   gem 'factory_girl_rails'     
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -35,6 +32,7 @@ group :development, :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'guard-minitest'
+  gem 'simplecov'
 end
 
 # Use ActiveModel has_secure_password

@@ -3,12 +3,12 @@ class ReviewsController < ApplicationController
 	before_action :set_review, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
 
-  def index
-  	@reviews = Review.all
-  end
+  # def index
+  # 	@reviews = Review.all
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
   	@review = Review.new

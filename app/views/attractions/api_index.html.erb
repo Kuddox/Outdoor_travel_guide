@@ -3,8 +3,24 @@
 <div class="panel panel-default">
 
   <% if @api_results['places'] == [] %>
-    <h4> Sorry, nothing found.  Please try another search. </h4>
-    <%= link_to 'New Search', root_path, class: "btn btn-primary" %>
+    <div class="modal fade">
+     <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sorry, nothing found.  Please try another search.</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"><%= link_to 'New Search', root_path, class: "btn btn-primary" %></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+    
   <% end %>  
   <% @api_results['places'].each do |place| %>
   <% place['activities'].each do |activity| %>

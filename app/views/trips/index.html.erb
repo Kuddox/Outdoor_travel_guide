@@ -1,20 +1,75 @@
-<div class="svg-wrapper col-md-5">
- <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
-  <rect class="shape" height="60" width="320" />
-   <div class="text" align="center">MY TRIPS</div>
- </svg>
+
+<div class="container">
+  <div class="panel-group col-md-6" id="accordion" role="tablist" aria-multiselectable="true">
+  <% @trips.each_with_index do |trip, index| %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading<%= index %>">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>">
+              <%= trip.name %>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse<%= index %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<%= index %>">
+          <div class="panel-body">
+            <div class="btn-group btn-group-justified">
+              <div class="btn-group">
+                <button class="btn btn-default" data-target="#myTripModal">
+                  <%= link_to 'Show trip', trip_path(trip.id) %>
+                </button>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-default">
+                  <%= link_to 'Edit trip', edit_trip_path(trip.id), id: 'edit-trip-ajax', remote: true %>
+                </button>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-default">
+                  <%= link_to 'Delete', trip, method: :delete, data: { confirm: 'Are you sure that you want to delete?' }%>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+  <% end %>
+  </div>
+  <div class="col-md-6">
+    <div class="svg-wrapper">
+      <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+        <rect class="shape" height="60" width="320" />
+        <div class="text" align="center">MY TRIPS</div>
+        <p align="center"><%= link_to 'Create New Trip', new_trip_path(@trip), id: 'new-trip-ajax', remote: true, class: "btn btn-primary" %></p>
+      </svg>
+    </div>   
+
+  </div> 
 </div>
-<div class="panel col-md-5" style="color:grey;">
-<p><%= link_to 'Create New Trip', new_trip_path(@trip), id: 'new-trip-ajax', remote: true, class: "btn btn-primary" %>
-<% @trips.each do |trip| %>
-	<h2><%= trip.name %></h2>
-	<%= link_to 'Show trip', trip_path(trip.id) %>
-	<%= link_to 'Edit trip', edit_trip_path(trip.id), id: 'edit-trip-ajax', remote: true %>
-	<%= link_to 'Delete', trip, method: :delete, data: { confirm: 'Are you sure that you want to delete?' }%>
 
-<% end %>
 
-<div id='modal-div'>
+<div id='modal-div'></div> 
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-</div> 

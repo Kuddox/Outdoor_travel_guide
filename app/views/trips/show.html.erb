@@ -1,4 +1,5 @@
-<div class="panel panel-default">
+<div id="myTripModal">
+	<div class="panel panel-default">
 
 <h1> My Trips </h1>
 <h2><%= @trip.name %></h2>
@@ -34,3 +35,4 @@
 	<%= link_to 'Add More', root_path, class: "btn btn-primary" %>
 	<%= link_to 'Mail It To Me', user_mailer_path(id: @trip.id), class: "btn btn-primary" %>
 </div> 
+</div>
