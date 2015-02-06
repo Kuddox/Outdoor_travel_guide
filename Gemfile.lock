@@ -80,13 +80,10 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
-<<<<<<< HEAD
     ffi (1.9.6)
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
     formatador (0.2.5)
-=======
->>>>>>> 7ee6c48d3c0e34ee6739ab53be7912ecd1c0a737
     geocoder (1.2.7)
     gmaps4rails (2.1.2)
     guard-compat (1.2.1)
